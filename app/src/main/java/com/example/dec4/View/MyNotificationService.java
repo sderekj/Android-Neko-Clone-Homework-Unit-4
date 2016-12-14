@@ -12,6 +12,7 @@ import android.widget.Toast;
 
 import com.example.dec4.Model.AnimalDatabaseHelper;
 import com.example.dec4.Model.Bunny;
+import com.example.dec4.Model.Icons;
 import com.example.dec4.R;
 import com.example.dec4.SecondActivity;
 
@@ -27,10 +28,12 @@ import static nl.qbusict.cupboard.CupboardFactory.cupboard;
 public class MyNotificationService extends IntentService {
 
     private static final String SERVICE_NAME = "notification-service";
-
     Random mRandomNumber;
     public static SQLiteDatabase db;
     public static AnimalDatabaseHelper dbHelper;
+    public static Icons mIcons;
+
+
 
     // Must create a default constructor
     public MyNotificationService() {
@@ -40,10 +43,12 @@ public class MyNotificationService extends IntentService {
     @Override
     public void onCreate() {
         super.onCreate();
-
         mRandomNumber = new Random();
         dbHelper = AnimalDatabaseHelper.getInstance(this);
         db = dbHelper.getWritableDatabase();
+
+
+
 
         // if you override onCreate(), make sure to call super().
         // If a Context object is needed, call getApplicationContext() here.
@@ -69,16 +74,20 @@ public class MyNotificationService extends IntentService {
         NotificationManager notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
 
         notificationManager.notify(NOTIFICATION_ID, notification);
-        int tempNumber=mRandomNumber.nextInt(6)+1;
 
+
+        int tempNumber=mRandomNumber.nextInt(10)+1;
+        mIcons=new Icons();
         String catName = "Bunny"+ tempNumber;
         Long lastFed = Calendar.getInstance().getTimeInMillis();
-        addCat(new Bunny(catName,lastFed));
+        addBunny(new Bunny(catName,lastFed,mIcons.getmIcons().get(tempNumber)));
         Toast.makeText(this, "Added Bunny", Toast.LENGTH_SHORT).show();
 
     }
 
-    private void addCat(Bunny cat) {
-        cupboard().withDatabase(db).put(cat);
+    private void addBunny(Bunny bunny) {
+        cupboard().withDatabase(db).put(bunny);
     }
+
+
 }

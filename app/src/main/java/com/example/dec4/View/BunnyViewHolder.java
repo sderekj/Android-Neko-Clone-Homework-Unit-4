@@ -31,6 +31,7 @@ public class BunnyViewHolder extends RecyclerView.ViewHolder{
 
         //mBunnyIcon.setImageResource(bunny.);
         mBunnyName.setText(bunny.getName());
+        mBunnyIcon.setImageResource(bunny.getBunnyIcon());
 
 
     }

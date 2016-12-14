@@ -23,19 +23,24 @@ public class Bunny {
         @Column("last_fed")
         private Long lastFed;
 
+    @Column("bynny_icon")
+    private int bunnyIcon;
+
 
 
         // required zero argument constructor
         public Bunny() {
             this.name = "Unknown";
             this.lastFed = Calendar.getInstance().getTimeInMillis();
+            this.bunnyIcon=0;
 
 
         }
 
-        public Bunny(String name, Long lastFed) {
+        public Bunny(String name, Long lastFed, int bunnyIcon) {
             this.name = name;
             this.lastFed = lastFed;
+            this.bunnyIcon=bunnyIcon;
 
         }
 
@@ -59,7 +64,9 @@ public class Bunny {
             this.lastFed = lastFed;
         }
 
-
+    public int getBunnyIcon() {
+        return bunnyIcon;
     }
+}
 
 

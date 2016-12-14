@@ -13,7 +13,7 @@ import static nl.qbusict.cupboard.CupboardFactory.cupboard;
 
 public class AnimalDatabaseHelper extends SQLiteOpenHelper {
     private static final String DATABASE_NAME = "animal.db";
-    private static final int DATABASE_VERSION = 2;
+    private static final int DATABASE_VERSION = 3;
 
     // make your database instance a singleton instance across the entire application's lifecycle.
     private static AnimalDatabaseHelper instance;
@@ -55,9 +55,9 @@ public class AnimalDatabaseHelper extends SQLiteOpenHelper {
         // this will upgrade tables, adding columns and new tables.
         // Note that existing columns will not be converted
         cupboard().withDatabase(db).upgradeTables();
-        if (newVersion == 2) {
+        if (newVersion == 4) {
             ContentValues values = new ContentValues();
-            values.put("image_url", " ");
+            values.put("bynny_icon", 0);
             cupboard().withDatabase(db).update(Bunny.class, values);
         }
 

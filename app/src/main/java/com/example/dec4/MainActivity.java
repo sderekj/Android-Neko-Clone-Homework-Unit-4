@@ -9,6 +9,10 @@ import android.support.v7.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
 
+//    public static SQLiteDatabase db;
+//    public static AnimalDatabaseHelper dbHelper;
+//    public static Icons mIcons;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
 
         // First parameter is the type: ELAPSED_REALTIME, ELAPSED_REALTIME_WAKEUP, RTC_WAKEUP
         // Interval can be INTERVAL_FIFTEEN_MINUTES, INTERVAL_HALF_HOUR, INTERVAL_HOUR, INTERVAL_DAY
-        alarm.setInexactRepeating(AlarmManager.RTC_WAKEUP, firstMillis, AlarmManager.INTERVAL_HALF_HOUR, pendingIntent);
+        alarm.setInexactRepeating(AlarmManager.RTC_WAKEUP, firstMillis, 18000L, pendingIntent);
 
 
     }
