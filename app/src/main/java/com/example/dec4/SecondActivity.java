@@ -30,7 +30,7 @@ public class SecondActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.second_activity);
         mRecyclerView=(RecyclerView)findViewById(R.id.bunny_item);
-        mRecyclerView.setLayoutManager(new GridLayoutManager(this, 2));
+        mRecyclerView.setLayoutManager(new GridLayoutManager(this, 3));
         mRecyclerView.setAdapter(new BunnyAdapter(selectAllCats()));
 
 

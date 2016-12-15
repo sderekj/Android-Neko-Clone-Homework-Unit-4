@@ -13,7 +13,6 @@ import android.widget.Toast;
 import com.example.dec4.Model.AnimalDatabaseHelper;
 import com.example.dec4.Model.Bunny;
 import com.example.dec4.Model.Icons;
-import com.example.dec4.R;
 import com.example.dec4.SecondActivity;
 
 import java.util.Calendar;
@@ -34,7 +33,6 @@ public class MyNotificationService extends IntentService {
     public static Icons mIcons;
 
 
-
     // Must create a default constructor
     public MyNotificationService() {
         super(SERVICE_NAME);
@@ -48,24 +46,25 @@ public class MyNotificationService extends IntentService {
         db = dbHelper.getWritableDatabase();
 
 
-
-
         // if you override onCreate(), make sure to call super().
         // If a Context object is needed, call getApplicationContext() here.
     }
 
     @Override
     protected void onHandleIntent(Intent intent) {
+
+        /* Mila's previous code for code below
+
         int NOTIFICATION_ID = 555; // Setting a notification ID allows you to update the notification later on.
 
-        intent = new Intent(this,SecondActivity.class);
+        intent = new Intent(this, SecondActivity.class);
         int requestID = (int) System.currentTimeMillis(); // Unique requestID to differentiate between various notification with same notification ID
         int flags = PendingIntent.FLAG_CANCEL_CURRENT; // Cancel old intent and create new one
         PendingIntent pendingIntent = PendingIntent.getActivity(this, requestID, intent, flags);
 
         Notification notification = new NotificationCompat.Builder(this)
                 .setSmallIcon(R.drawable.ic_favorite_black_24dp)
-                .setContentTitle("My notification")
+                .setContentTitle("A bunny is here!")
                 .setContentText("Hello World!")
                 .setContentIntent(pendingIntent)
                 .setAutoCancel(true) // Hides the notification after its been selected
@@ -76,11 +75,42 @@ public class MyNotificationService extends IntentService {
         notificationManager.notify(NOTIFICATION_ID, notification);
 
 
-        int tempNumber=mRandomNumber.nextInt(10)+1;
-        mIcons=new Icons();
-        String catName = "Bunny"+ tempNumber;
+        int tempNumber = mRandomNumber.nextInt(9) + 1; // fixed outofbounds exception
+        mIcons = new Icons();
+        String catName = "Bunny" + tempNumber;
         Long lastFed = Calendar.getInstance().getTimeInMillis();
-        addBunny(new Bunny(catName,lastFed,mIcons.getmIcons().get(tempNumber)));
+        addBunny(new Bunny(catName, lastFed, mIcons.getmIcons().get(tempNumber)));
+        Toast.makeText(this, "Added Bunny", Toast.LENGTH_SHORT).show();
+
+         */
+
+        int NOTIFICATION_ID = 555; // Setting a notification ID allows you to update the notification later on.
+
+        intent = new Intent(this, SecondActivity.class);
+        int requestID = (int) System.currentTimeMillis(); // Unique requestID to differentiate between various notification with same notification ID
+        int flags = PendingIntent.FLAG_CANCEL_CURRENT; // Cancel old intent and create new one
+        PendingIntent pendingIntent = PendingIntent.getActivity(this, requestID, intent, flags);
+
+        int tempNumber = mRandomNumber.nextInt(9) + 1; // fixed outofbounds exception
+        String bunnyName = "Bunny " + tempNumber;
+        mIcons = new Icons();
+        Notification notification = new NotificationCompat.Builder(this)
+                .setSmallIcon(mIcons.getmNotifIcons().get(tempNumber-1))
+                .setContentTitle("A bunny is here!")
+                .setContentText(bunnyName)
+                .setContentIntent(pendingIntent)
+                .setAutoCancel(true) // Hides the notification after its been selected
+                .build();
+
+        NotificationManager notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+
+        notificationManager.notify(NOTIFICATION_ID, notification);
+
+
+
+
+        Long lastFed = Calendar.getInstance().getTimeInMillis();
+        addBunny(new Bunny(bunnyName, lastFed, mIcons.getmIcons().get(tempNumber - 1)));
         Toast.makeText(this, "Added Bunny", Toast.LENGTH_SHORT).show();
 
     }
