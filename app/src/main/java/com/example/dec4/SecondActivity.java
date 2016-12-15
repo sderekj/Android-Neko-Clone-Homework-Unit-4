@@ -31,7 +31,7 @@ public class SecondActivity extends AppCompatActivity {
         setContentView(R.layout.second_activity);
         mRecyclerView=(RecyclerView)findViewById(R.id.bunny_item);
         mRecyclerView.setLayoutManager(new GridLayoutManager(this, 3));
-        mRecyclerView.setAdapter(new BunnyAdapter(selectAllCats()));
+        mRecyclerView.setAdapter(new BunnyAdapter(selectAllCats(),this));
 
 
 

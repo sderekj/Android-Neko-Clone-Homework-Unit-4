@@ -2,8 +2,8 @@ package com.example.dec4.View;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
-import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.example.dec4.Model.Bunny;
 import com.example.dec4.R;
@@ -15,15 +15,16 @@ import com.example.dec4.R;
 public class BunnyViewHolder extends RecyclerView.ViewHolder{
 
     ImageView mBunnyIcon;
-    EditText mBunnyName;
+    TextView mBunnyName;
     View mView;
     public BunnyViewHolder(View itemView) {
         super(itemView);
 
         mView =  itemView;
         mBunnyIcon =(ImageView)mView.findViewById(R.id.bunny_icon);
-        mBunnyName=(EditText)mView.findViewById(R.id.bunny_name);
-        mBunnyName.setFocusable(false);
+        mBunnyName=(TextView) mView.findViewById(R.id.bunny_name);
+
+
 
 
     }
@@ -31,10 +32,22 @@ public class BunnyViewHolder extends RecyclerView.ViewHolder{
     public void bind(Bunny bunny){
 
         //mBunnyIcon.setImageResource(bunny.);
-        mBunnyName.setHint(bunny.getName());
+        mBunnyName.setText(bunny.getName());
         mBunnyIcon.setImageResource(bunny.getBunnyIcon());
 
 
 
+    }
+
+    public ImageView getmBunnyIcon() {
+        return mBunnyIcon;
+    }
+
+    public TextView getmBunnyName() {
+        return mBunnyName;
+    }
+
+    public View getmView() {
+        return mView;
     }
 }
