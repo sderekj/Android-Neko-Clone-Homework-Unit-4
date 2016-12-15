@@ -54,37 +54,6 @@ public class MyNotificationService extends IntentService {
     @Override
     protected void onHandleIntent(Intent intent) {
 
-        /* Mila's previous code for code below
-
-        int NOTIFICATION_ID = 555; // Setting a notification ID allows you to update the notification later on.
-
-        intent = new Intent(this, SecondActivity.class);
-        int requestID = (int) System.currentTimeMillis(); // Unique requestID to differentiate between various notification with same notification ID
-        int flags = PendingIntent.FLAG_CANCEL_CURRENT; // Cancel old intent and create new one
-        PendingIntent pendingIntent = PendingIntent.getActivity(this, requestID, intent, flags);
-
-        Notification notification = new NotificationCompat.Builder(this)
-                .setSmallIcon(R.drawable.ic_favorite_black_24dp)
-                .setContentTitle("A bunny is here!")
-                .setContentText("Hello World!")
-                .setContentIntent(pendingIntent)
-                .setAutoCancel(true) // Hides the notification after its been selected
-                .build();
-
-        NotificationManager notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-
-        notificationManager.notify(NOTIFICATION_ID, notification);
-
-
-        int tempNumber = mRandomNumber.nextInt(9) + 1; // fixed outofbounds exception
-        mIcons = new Icons();
-        String catName = "Bunny" + tempNumber;
-        Long lastFed = Calendar.getInstance().getTimeInMillis();
-        addBunny(new Bunny(catName, lastFed, mIcons.getmIcons().get(tempNumber)));
-        Toast.makeText(this, "Added Bunny", Toast.LENGTH_SHORT).show();
-
-         */
-
         int NOTIFICATION_ID = 555; // Setting a notification ID allows you to update the notification later on.
 
         intent = new Intent(this, SecondActivity.class);
