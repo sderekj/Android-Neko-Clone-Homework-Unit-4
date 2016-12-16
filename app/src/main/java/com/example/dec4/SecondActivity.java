@@ -37,7 +37,7 @@ public class SecondActivity extends AppCompatActivity {
         setContentView(R.layout.second_activity);
         mRecyclerView = (RecyclerView) findViewById(R.id.bunny_item);
         mRecyclerView.setLayoutManager(new GridLayoutManager(this, 3));
-        mRecyclerView.setAdapter(new BunnyAdapter(selectAllCats()));
+        mRecyclerView.setAdapter(new BunnyAdapter(selectAllCats(),this));
 
 
     }
@@ -56,7 +56,7 @@ public class SecondActivity extends AppCompatActivity {
             case R.id.lure_bunny_menu_item:
                 FragmentManager fragmentManager = getFragmentManager();
                 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                fragmentTransaction.replace(R.id.bunny_feeder_frame2, new BunnyFeederFragment());
+                fragmentTransaction.replace(R.id.bunny_second_activity, new BunnyFeederFragment());
                 fragmentTransaction.commit();
                 return true;
             default:
@@ -80,6 +80,5 @@ public class SecondActivity extends AppCompatActivity {
 
         return bunnies;
     }
-
 
 }

@@ -13,10 +13,12 @@ import java.util.List;
 public class Icons {
 
     List<Integer> mIcons = new ArrayList<>();
+    List<Integer> mNotifIcons = new ArrayList<>();
 
     public Icons() {
 
         initList();
+        initNotificationIcons();
 
     }
 
@@ -52,7 +54,25 @@ public class Icons {
 
     }
 
+    public void initNotificationIcons() {
+        mNotifIcons.add(R.drawable.b1_s);
+        mNotifIcons.add(R.drawable.b2_s);
+        mNotifIcons.add(R.drawable.b3_s);
+        mNotifIcons.add(R.drawable.b4_s);
+        mNotifIcons.add(R.drawable.b5_s);
+        mNotifIcons.add(R.drawable.b6_s);
+        mNotifIcons.add(R.drawable.b7_s);
+        mNotifIcons.add(R.drawable.b8_s);
+        mNotifIcons.add(R.drawable.b9_s);
+
+
+    }
+
     public List<Integer> getmIcons() {
         return mIcons;
+    }
+
+    public List<Integer> getmNotifIcons() {
+        return mNotifIcons;
     }
 }

@@ -22,7 +22,9 @@ public class BunnyViewHolder extends RecyclerView.ViewHolder{
 
         mView =  itemView;
         mBunnyIcon =(ImageView)mView.findViewById(R.id.bunny_icon);
-        mBunnyName=(TextView)mView.findViewById(R.id.bunny_name);
+        mBunnyName=(TextView) mView.findViewById(R.id.bunny_name);
+
+
 
 
     }
@@ -34,5 +36,18 @@ public class BunnyViewHolder extends RecyclerView.ViewHolder{
         mBunnyIcon.setImageResource(bunny.getBunnyIcon());
 
 
+
+    }
+
+    public ImageView getmBunnyIcon() {
+        return mBunnyIcon;
+    }
+
+    public TextView getmBunnyName() {
+        return mBunnyName;
+    }
+
+    public View getmView() {
+        return mView;
     }
 }

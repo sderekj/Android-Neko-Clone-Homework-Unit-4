@@ -13,7 +13,6 @@ import android.widget.Toast;
 import com.example.dec4.Model.AnimalDatabaseHelper;
 import com.example.dec4.Model.Bunny;
 import com.example.dec4.Model.Icons;
-import com.example.dec4.R;
 import com.example.dec4.SecondActivity;
 
 import java.util.Calendar;
@@ -63,9 +62,9 @@ public class MyNotificationService extends IntentService {
 
         int tempNumber = mRandomNumber.nextInt(9) + 1; // fixed outofbounds exception
         String bunnyName = "Bunny " + tempNumber;
-
+        mIcons = new Icons();
         Notification notification = new NotificationCompat.Builder(this)
-                .setSmallIcon(R.drawable.ic_favorite_black_24dp)
+                .setSmallIcon(mIcons.getmNotifIcons().get(tempNumber-1))
                 .setContentTitle("A bunny is here!")
                 .setContentText(bunnyName)
                 .setContentIntent(pendingIntent)
@@ -77,7 +76,7 @@ public class MyNotificationService extends IntentService {
         notificationManager.notify(NOTIFICATION_ID, notification);
 
 
-        mIcons = new Icons();
+
 
         Long lastFed = Calendar.getInstance().getTimeInMillis();
         addBunny(new Bunny(bunnyName, lastFed, mIcons.getmIcons().get(tempNumber - 1)));

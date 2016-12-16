@@ -1,20 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/bunny_feeder_frame2"
+    android:id="@+id/bunny_second_activity"
+    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:layout_height="match_parent">
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/bunny_item"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="match_parent" />
 
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/bunny_item"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-
-
-    </LinearLayout>
 </FrameLayout>

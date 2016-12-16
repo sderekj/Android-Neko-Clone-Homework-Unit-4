@@ -4,10 +4,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 
-import com.example.dec4.Model.Bunny;
 import com.example.dec4.View.MyNotificationService;
-
-import static nl.qbusict.cupboard.CupboardFactory.cupboard;
 
 /**
  * Created by Millochka on 12/4/16.
@@ -29,7 +26,5 @@ public class MyAlarmReceiver extends BroadcastReceiver {
 
     }
 
-    private void addCat(Bunny cat) {
-        cupboard().withDatabase(MyNotificationService.db).put(cat);
-    }
+
 }
