@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
+    private static long TIME_INTERVAL = 120000L;
 
 //    public static SQLiteDatabase db;
 //    public static AnimalDatabaseHelper dbHelper;
@@ -18,9 +19,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         scheduleAlarm();
-
-
-
 
     }
 
@@ -39,10 +37,11 @@ public class MainActivity extends AppCompatActivity {
 
         // First parameter is the type: ELAPSED_REALTIME, ELAPSED_REALTIME_WAKEUP, RTC_WAKEUP
         // Interval can be INTERVAL_FIFTEEN_MINUTES, INTERVAL_HALF_HOUR, INTERVAL_HOUR, INTERVAL_DAY
-        alarm.setInexactRepeating(AlarmManager.RTC_WAKEUP, firstMillis, 18000L, pendingIntent);
-
-
+        alarm.setInexactRepeating(AlarmManager.RTC_WAKEUP, firstMillis, TIME_INTERVAL, pendingIntent);
     }
 
+    public static void setTimer(long timer) {
+        MainActivity.TIME_INTERVAL = timer;
+    }
 }
 

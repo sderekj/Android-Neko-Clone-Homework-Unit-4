@@ -57,7 +57,10 @@ public class BunnyAdapter extends RecyclerView.Adapter implements ViewGroup.OnCl
         switch (view.getId()){
             case R.id.bunny_name:
 
-                mManinActivity.getFragmentManager().beginTransaction().replace(R.id.bunny_second_activity, new NameFragment()).commit();
+                mManinActivity.getFragmentManager()
+                        .beginTransaction()
+                        .replace(R.id.bunny_second_activity, new NameFragment())
+                        .commit();
 
 
             break;
