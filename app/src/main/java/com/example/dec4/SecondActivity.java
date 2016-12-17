@@ -127,7 +127,7 @@ public class SecondActivity extends AppCompatActivity implements BunnyAdapter.Li
     public void onBunnyLongClicked(Bunny bunny) {
 
         mClickedBunny=bunny;
-        String
+
 
         getFragmentManager().beginTransaction().add(R.id.bunny_second_activity, mDetailedFragment).commit();
 
