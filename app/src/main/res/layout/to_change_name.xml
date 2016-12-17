@@ -10,16 +10,30 @@
         android:background="@color/colorGray"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
-        android:alpha="1">
+        >
 
     <EditText
-        android:id="@+id/set_bunny_name"
+        android:id="@+id/type_bunny_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:hint="Bunny Name"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
-        android:alpha="1"/>
+        />
+
+        <Button
+            android:id="@+id/set_bunny_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:text="OK"
+            android:onClick="ClickOk"
+            />
+
+
     </RelativeLayout>
+
+
 
 </RelativeLayout>

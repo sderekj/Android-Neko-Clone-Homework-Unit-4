@@ -13,6 +13,8 @@ public class MainActivity extends AppCompatActivity {
 //    public static AnimalDatabaseHelper dbHelper;
 //    public static Icons mIcons;
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

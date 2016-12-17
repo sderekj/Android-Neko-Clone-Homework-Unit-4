@@ -15,34 +15,63 @@ import java.util.List;
 /**
  * Created by Millochka on 12/5/16.
  */
-public class BunnyAdapter extends RecyclerView.Adapter implements ViewGroup.OnClickListener {
+public class BunnyAdapter extends RecyclerView.Adapter {
+
 
     private List<Bunny> mBunnies = new ArrayList<>();
 
 
-    private Activity mManinActivity;
+    private Activity mSecondActivity;
 
 
 
-    public BunnyAdapter(List<Bunny> bunnies, Activity maninActivity){
+
+    private Listener listener;
+
+
+
+
+    public BunnyAdapter(List<Bunny> bunnies, Activity secondActivity, Listener listener){
 
         this.mBunnies=bunnies;
-        this.mManinActivity=maninActivity;
+        this.mSecondActivity=secondActivity;
+        this.listener = listener;
     }
 
     @Override
-    public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType ){
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.cute_bunny, parent, false);
         BunnyViewHolder cuteBunny = new BunnyViewHolder(view);
+
+
         return cuteBunny;
     }
 
     @Override
-    public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
+    public void onBindViewHolder(RecyclerView.ViewHolder holder, final int position) {
 
         BunnyViewHolder mBunnyViewHolder=(BunnyViewHolder)holder;
          mBunnyViewHolder.bind(mBunnies.get(position));
-         mBunnyViewHolder.getmBunnyName().setOnClickListener(this);
+        mBunnyViewHolder.getmBunnyLayout().setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                listener.onBunnyClicked(mBunnies.get(position));
+
+            }
+        });
+
+        mBunnyViewHolder.getmBunnyLayout().setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View view) {
+                listener.onBunnyLongClicked(mBunnies.get(position));
+
+                return true;
+            }
+        });
+
+
+
 
     }
 
@@ -51,17 +80,15 @@ public class BunnyAdapter extends RecyclerView.Adapter implements ViewGroup.OnCl
         return mBunnies.size();
     }
 
-    @Override
-    public void onClick(View view) {
-
-        switch (view.getId()){
-            case R.id.bunny_name:
-
-                mManinActivity.getFragmentManager().beginTransaction().add(R.id.bunny_second_activity, new NameFragment()).commit();
-
-
-            break;
-        }
-
+    public void setData(List<Bunny> bunnies) {
+        this.mBunnies = bunnies;
+        notifyDataSetChanged();
     }
+
+
+    public interface Listener {
+        void onBunnyClicked(Bunny bunny);
+        void onBunnyLongClicked(Bunny bunny);
+    }
+
 }

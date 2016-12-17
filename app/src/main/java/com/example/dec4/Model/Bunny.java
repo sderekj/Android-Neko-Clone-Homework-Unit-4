@@ -14,7 +14,7 @@ public class Bunny {
         // a POJO for cupboard must always contain a variable of type Long called _id.
         // this will serve as the index for the POJO within the SQLite table and will
         // auto-increment.
-        //private Long _id;
+        private Long _id;
 
         private String name;
 
