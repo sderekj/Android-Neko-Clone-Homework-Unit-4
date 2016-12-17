@@ -5,14 +5,20 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
 import com.example.dec4.R;
+
+import static com.example.dec4.View.MyNotificationService.mIcons;
 
 /**
  * Created by Millochka on 12/16/16.
  */
 
 public class DetailedFragment extends Fragment{
+    private static final String BUNNY_NUMBER = "com.example.dec4";
+
+    private ImageView mBunnyImage;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -22,7 +28,13 @@ public class DetailedFragment extends Fragment{
 
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);}
+        super.onViewCreated(view, savedInstanceState);
+
+        mBunnyImage=(ImageView) view.findViewById(R.id.bunny_image);
+
+        mBunnyImage.setImageResource(mIcons.getmIcons().get(getArguments().getInt(BUNNY_NUMBER)));
+
+    }
 
 
 }

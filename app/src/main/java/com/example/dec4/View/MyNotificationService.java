@@ -77,7 +77,7 @@ public class MyNotificationService extends IntentService {
 
 
         Long lastFed = Calendar.getInstance().getTimeInMillis();
-        addBunny(new Bunny(bunnyName, lastFed, mIcons.getmIcons().get(tempNumber - 1)));
+        addBunny(new Bunny(bunnyName, lastFed, mIcons.getmIcons().get(tempNumber - 1),tempNumber-1));
         Toast.makeText(this, "Added Bunny", Toast.LENGTH_SHORT).show();
 
     }

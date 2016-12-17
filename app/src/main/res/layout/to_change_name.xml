@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#66e7d2e7"
+    android:onClick="removeChangeName"
     >
     <RelativeLayout
         android:layout_width="300dp"

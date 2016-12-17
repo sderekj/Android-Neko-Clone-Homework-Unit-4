@@ -7,10 +7,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
-import android.view.View;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
 
 import com.example.dec4.Model.Bunny;
 import com.example.dec4.View.BunnyAdapter;
@@ -32,6 +32,7 @@ import static nl.qbusict.cupboard.CupboardFactory.cupboard;
 public class SecondActivity extends AppCompatActivity implements BunnyAdapter.Listener{
 
     private static final String TAG ="SecondActivity" ;
+    private static final String BUNNY_NUMBER = "com.example.dec4";
     RecyclerView mRecyclerView;
     BunnyAdapter mBunnyAdapter;
      NameFragment mNameFragment;
@@ -108,7 +109,14 @@ public class SecondActivity extends AppCompatActivity implements BunnyAdapter.Li
 
     public void removeFragment(View view){
 
-        getFragmentManager().beginTransaction().remove(mDetailedFragment).commit();
+        switch (view.getId()) {
+            case R.id.bunny_view_details:
+            getFragmentManager().beginTransaction().remove(mDetailedFragment).commit();
+                break;
+            case R.id.name_changer_layout:
+                getFragmentManager().beginTransaction().remove(mNameFragment).commit();
+                break;
+        }
 
     }
     private void refreshBunnyList() {
@@ -126,10 +134,15 @@ public class SecondActivity extends AppCompatActivity implements BunnyAdapter.Li
     @Override
     public void onBunnyLongClicked(Bunny bunny) {
 
-        mClickedBunny=bunny;
 
+
+        Bundle bundle = new Bundle();
+
+        bundle.putInt(BUNNY_NUMBER,bunny.getBunnyNumber());
+        mDetailedFragment.setArguments(bundle);
 
         getFragmentManager().beginTransaction().add(R.id.bunny_second_activity, mDetailedFragment).commit();
 
     }
+
 }
