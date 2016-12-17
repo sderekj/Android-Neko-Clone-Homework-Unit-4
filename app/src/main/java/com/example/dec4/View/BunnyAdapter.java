@@ -39,11 +39,9 @@ public class BunnyAdapter extends RecyclerView.Adapter {
     }
 
     @Override
-    public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType ){
+    public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.cute_bunny, parent, false);
         BunnyViewHolder cuteBunny = new BunnyViewHolder(view);
-
-
         return cuteBunny;
     }
 

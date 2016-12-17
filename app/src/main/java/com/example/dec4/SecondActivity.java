@@ -1,11 +1,16 @@
 package com.example.dec4;
 
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 
 import com.example.dec4.Model.Bunny;
 import com.example.dec4.View.BunnyAdapter;
@@ -44,8 +49,28 @@ public class SecondActivity extends AppCompatActivity implements BunnyAdapter.Li
         mRecyclerView.setAdapter(mBunnyAdapter);
         mNameFragment = new NameFragment();
         mDetailedFragment=new DetailedFragment();
-        mClickedBunny = new Bunny();
+        mClickedBunny = new Bunny();}
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle item selection
+        switch (item.getItemId()) {
+            case R.id.lure_bunny_menu_item:
+                FragmentManager fragmentManager = getFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                fragmentTransaction.replace(R.id.bunny_second_activity, new BunnyFeederFragment());
+                fragmentTransaction.commit();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 
     private List<Bunny> selectAllCats() {
