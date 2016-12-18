@@ -46,7 +46,7 @@ public class SecondActivity extends AppCompatActivity implements BunnyAdapter.Li
         setContentView(R.layout.second_activity);
         mRecyclerView=(RecyclerView)findViewById(R.id.bunny_item);
         mRecyclerView.setLayoutManager(new GridLayoutManager(this, 3));
-        mBunnyAdapter = new BunnyAdapter(selectAllCats(),this,this);
+        mBunnyAdapter = new BunnyAdapter(selectAllBunnies(),this,this);
         mRecyclerView.setAdapter(mBunnyAdapter);
         mNameFragment = new NameFragment();
         mDetailedFragment=new DetailedFragment();
@@ -74,7 +74,7 @@ public class SecondActivity extends AppCompatActivity implements BunnyAdapter.Li
         }
     }
 
-    private List<Bunny> selectAllCats() {
+    private List<Bunny> selectAllBunnies() {
         List<Bunny> bunnies = new ArrayList<>();
 
         try {
@@ -85,7 +85,7 @@ public class SecondActivity extends AppCompatActivity implements BunnyAdapter.Li
             }
             itr.close();
         } catch (Exception e) {
-            Log.e(TAG, "selectAllCats: ", e);
+            Log.e(TAG, "selectAllBunnies: ", e);
         }
 
         return bunnies;
@@ -120,7 +120,7 @@ public class SecondActivity extends AppCompatActivity implements BunnyAdapter.Li
 
     }
     private void refreshBunnyList() {
-        mBunnyAdapter.setData(selectAllCats());
+        mBunnyAdapter.setData(selectAllBunnies());
     }
 
     @Override
