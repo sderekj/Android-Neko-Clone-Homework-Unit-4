@@ -17,6 +17,8 @@ public class BunnyFeederFragment extends Fragment implements View.OnClickListene
     private View chiliButton;
     private View cakeButton;
 
+    private static int bunnyTextColor = 0;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.bunny_feeder, container, false);
@@ -40,13 +42,17 @@ public class BunnyFeederFragment extends Fragment implements View.OnClickListene
 
     @Override
     public void onClick(View view) {
-        switch(view.getId()) {
-            case R.id.carrot_button: case R.id.lettuce_button:
+        switch (view.getId()) {
+            case R.id.carrot_button:
+            case R.id.lettuce_button:
                 // Implement textColor changer
+                bunnyTextColor = R.drawable.carrot;
                 closeFragment();
                 break;
-            case R.id.chili_button: case R.id.cake_button:
+            case R.id.chili_button:
+            case R.id.cake_button:
                 // Implement textColor changer
+                bunnyTextColor = R.drawable.chili;
                 closeFragment();
                 break;
             default:
@@ -62,4 +68,13 @@ public class BunnyFeederFragment extends Fragment implements View.OnClickListene
         fragmentTransaction.remove(BunnyFeederFragment.this);
         fragmentTransaction.commit();
     }
+
+    public static int getBunnyFood() {
+        return bunnyTextColor;
+    }
+
+    public static void setBunnyTextColor(int bunnyTextColor) {
+        BunnyFeederFragment.bunnyTextColor = bunnyTextColor;
+    }
+
 }

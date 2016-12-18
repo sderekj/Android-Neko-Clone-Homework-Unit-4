@@ -10,6 +10,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.support.v4.app.NotificationCompat;
 import android.widget.Toast;
 
+import com.example.dec4.BunnyFeederFragment;
 import com.example.dec4.Model.AnimalDatabaseHelper;
 import com.example.dec4.Model.Bunny;
 import com.example.dec4.Model.Icons;
@@ -62,7 +63,7 @@ public class MyNotificationService extends IntentService {
         String bunnyName = "Bunny " + tempNumber;
         mIcons = new Icons();
         Notification notification = new NotificationCompat.Builder(this)
-                .setSmallIcon(mIcons.getmNotifIcons().get(tempNumber-1))
+                .setSmallIcon(mIcons.getmNotifIcons().get(tempNumber - 1))
                 .setContentTitle("A bunny is here!")
                 .setContentText(bunnyName)
                 .setContentIntent(pendingIntent)
@@ -74,10 +75,13 @@ public class MyNotificationService extends IntentService {
         notificationManager.notify(NOTIFICATION_ID, notification);
 
 
-
+        int bunnyFood = BunnyFeederFragment.getBunnyFood();
 
         Long lastFed = Calendar.getInstance().getTimeInMillis();
-        addBunny(new Bunny(bunnyName, lastFed, mIcons.getmIcons().get(tempNumber - 1),tempNumber-1));
+        addBunny(new Bunny(bunnyName, lastFed, mIcons.getmIcons().get(tempNumber - 1), tempNumber - 1, bunnyFood));
+
+        BunnyFeederFragment.setBunnyTextColor(0);
+
         Toast.makeText(this, "Added Bunny", Toast.LENGTH_SHORT).show();
 
     }

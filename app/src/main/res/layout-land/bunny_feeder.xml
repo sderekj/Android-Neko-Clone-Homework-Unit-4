@@ -23,7 +23,7 @@
 
         <ImageButton
             android:id="@id/lettuce_button"
-            android:src="@drawable/salad"
+            android:src="@drawable/lettuce"
             android:background="@color/colorGray"
             android:layout_toRightOf="@id/carrot_button"
             android:layout_width="100dp"
@@ -31,7 +31,7 @@
 
         <ImageButton
             android:id="@id/chili_button"
-            android:src="@drawable/food"
+            android:src="@drawable/chili"
             android:background="@color/colorGray"
             android:layout_below="@id/carrot_button"
             android:layout_width="100dp"

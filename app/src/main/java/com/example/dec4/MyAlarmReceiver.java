@@ -15,13 +15,11 @@ public class MyAlarmReceiver extends BroadcastReceiver {
     public static final String ACTION = "nyc.c4q.notificationdemo.alarm";
 
 
-
     // Triggered by the Alarm periodically (starts the notification service)
     @Override
     public void onReceive(Context context, Intent intent) {
         Intent i = new Intent(context, MyNotificationService.class);
         context.startService(i);
-
 
 
     }

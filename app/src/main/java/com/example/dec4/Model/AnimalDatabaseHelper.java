@@ -57,7 +57,7 @@ public class AnimalDatabaseHelper extends SQLiteOpenHelper {
         cupboard().withDatabase(db).upgradeTables();
         if (newVersion == 4) {
             ContentValues values = new ContentValues();
-            values.put("bynny_icon", 0);
+            values.put("bunny_icon", 0);
             cupboard().withDatabase(db).update(Bunny.class, values);
         }
 
