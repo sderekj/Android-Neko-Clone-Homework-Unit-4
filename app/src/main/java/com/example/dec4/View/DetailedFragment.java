@@ -39,7 +39,7 @@ public class DetailedFragment extends Fragment{
 
         if(getArguments().getInt(BUNNY_FOOD)==0){
 
-            mBunnyAte.setImageResource(R.drawable.ic_favorite_black_24dp);
+            mBunnyAte.setImageResource(R.drawable.lily);
 
         }else{
             mBunnyAte.setImageResource(getArguments().getInt(BUNNY_FOOD));}

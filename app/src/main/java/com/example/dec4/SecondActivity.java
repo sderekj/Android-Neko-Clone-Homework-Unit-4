@@ -115,7 +115,9 @@ public class SecondActivity extends AppCompatActivity implements BunnyAdapter.Li
             getFragmentManager().beginTransaction().remove(mDetailedFragment).commit();
                 break;
             case R.id.name_changer_layout:
+
                 getFragmentManager().beginTransaction().remove(mNameFragment).commit();
+
                 break;
         }
 
@@ -146,5 +148,7 @@ public class SecondActivity extends AppCompatActivity implements BunnyAdapter.Li
         getFragmentManager().beginTransaction().add(R.id.bunny_second_activity, mDetailedFragment).commit();
 
     }
+
+
 
 }
