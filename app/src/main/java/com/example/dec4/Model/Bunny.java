@@ -23,7 +23,7 @@ public class Bunny {
         @Column("last_fed")
         private Long lastFed;
 
-    @Column("bynny_icon")
+    @Column("bunny_icon")
     private int bunnyIcon;
 
     private int bunnyNumber;

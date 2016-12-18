@@ -43,6 +43,7 @@ public class BunnyFeederFragment extends Fragment implements View.OnClickListene
         switch(view.getId()) {
             case R.id.carrot_button: case R.id.lettuce_button:
                 // Implement textColor changer
+
                 closeFragment();
                 break;
             case R.id.chili_button: case R.id.cake_button:
