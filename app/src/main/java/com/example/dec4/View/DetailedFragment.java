@@ -17,6 +17,7 @@ import static com.example.dec4.View.MyNotificationService.mIcons;
 
 public class DetailedFragment extends Fragment{
     private static final String BUNNY_NUMBER = "com.example.dec4";
+    private static final String BUNNY_FOOD = "Bunny food";
 
     private ImageView mBunnyImage;
     private ImageView mBunnyAte;
@@ -32,8 +33,16 @@ public class DetailedFragment extends Fragment{
         super.onViewCreated(view, savedInstanceState);
 
         mBunnyImage=(ImageView) view.findViewById(R.id.bunny_image);
+        mBunnyAte=(ImageView) view.findViewById(R.id.bunny_ate);
 
         mBunnyImage.setImageResource(mIcons.getmIcons().get(getArguments().getInt(BUNNY_NUMBER)));
+
+        if(getArguments().getInt(BUNNY_FOOD)==0){
+
+            mBunnyAte.setImageResource(R.drawable.ic_favorite_black_24dp);
+
+        }else{
+            mBunnyAte.setImageResource(getArguments().getInt(BUNNY_FOOD));}
 
         }
 

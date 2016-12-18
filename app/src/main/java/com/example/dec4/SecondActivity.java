@@ -33,6 +33,7 @@ public class SecondActivity extends AppCompatActivity implements BunnyAdapter.Li
 
     private static final String TAG ="SecondActivity" ;
     private static final String BUNNY_NUMBER = "com.example.dec4";
+    private static final String BUNNY_FOOD = "Bunny food";
     RecyclerView mRecyclerView;
     BunnyAdapter mBunnyAdapter;
      NameFragment mNameFragment;
@@ -139,6 +140,7 @@ public class SecondActivity extends AppCompatActivity implements BunnyAdapter.Li
         Bundle bundle = new Bundle();
 
         bundle.putInt(BUNNY_NUMBER,bunny.getBunnyNumber());
+        bundle.putInt(BUNNY_FOOD, bunny.getBunnyFood());
         mDetailedFragment.setArguments(bundle);
 
         getFragmentManager().beginTransaction().add(R.id.bunny_second_activity, mDetailedFragment).commit();
