@@ -85,7 +85,7 @@ public class SecondActivity extends AppCompatActivity implements BunnyAdapter.Li
             }
             itr.close();
         } catch (Exception e) {
-            Log.e(TAG, "selectAllCats: ", e);
+            Log.e(TAG, "selectAllBunnies: ", e);
         }
 
         return bunnies;
