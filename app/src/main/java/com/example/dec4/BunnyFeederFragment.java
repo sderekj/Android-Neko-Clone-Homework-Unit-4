@@ -42,11 +42,11 @@ public class BunnyFeederFragment extends Fragment implements View.OnClickListene
     public void onClick(View view) {
         switch(view.getId()) {
             case R.id.carrot_button: case R.id.lettuce_button:
-                MainActivity.setTimer(90000L);
+                // Implement textColor changer
                 closeFragment();
                 break;
             case R.id.chili_button: case R.id.cake_button:
-                MainActivity.setTimer(60000L);
+                // Implement textColor changer
                 closeFragment();
                 break;
             default:
